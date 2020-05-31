@@ -118,6 +118,17 @@ p {
     max-width: 60vw;
 }
 
+h1 {
+    letter-spacing: 0;
+    text-transform: none;
+    margin-bottom: 0;
+    font-size: 1.3em;
+}
+
+p {
+    font-weight: 400;
+}
+
 .controls {
     position: absolute;
     z-index: 9999;
