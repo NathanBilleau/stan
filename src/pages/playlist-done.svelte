@@ -22,7 +22,7 @@
     <p>
         Visionnez les différentes vidéo que vous avez sélectionné <br>
         Une fois que vous êtes prêt, cliquez sur
-        <StartPlaylist icon="forward" link="/playlist-watching" text="Passer le test" />
+        <StartPlaylist icon="forward" disabled text="Passer le test" />
         Répondez aux questions et obtenez votre note
         <span>Bon visionnage !</span>
     </p>
