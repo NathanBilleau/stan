@@ -85,16 +85,12 @@ main {
     object-fit: cover;
     filter: saturate(0);
     position: absolute;
-    transition: .2s;
-}
-
-/* previous */
-.covers img {
+    transition: transform .2s;
     transform: translate(-70px);
 }
 
 /* next */
-.covers .selected + img {
+.covers .selected ~ img {
     transform: translate(70px);
 }
 
