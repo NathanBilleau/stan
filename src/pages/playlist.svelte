@@ -1,5 +1,6 @@
 <script>
     import { goto } from '@sveltech/routify'
+    import mouse from 'mousetrap'
 
     import FullScreenBtn from '../components/FullScreenBtn.svelte'
     import HomeBtn from '../components/HomeBtn.svelte'
@@ -22,12 +23,17 @@
 
     function add() {
         selectedItems.push(index)
+        selectedItems = selectedItems
     }
 
     function forward() {
         index++
         if(index == content.length) index = 0
     }
+
+    mouse.bind('left', backward)
+    mouse.bind('up', add)
+    mouse.bind('right', forward)
 
 
 </script>
@@ -47,12 +53,13 @@
         {/each}
         <div class="controls">
             <button on:click={backward}><i class="fa fa-backward"></i></button>
+            
             {#if selectedItems.includes(index)}
                     <Selected />
             {:else}
                     <button on:click={add}><i class="fa fa-plus"></i></button>
             {/if}
-            <!-- <button on:click={add}><i class="fa fa-plus"></i></button> -->
+            
             <button on:click={forward}><i class="fa fa-forward"></i></button>
         </div>
     </div>
