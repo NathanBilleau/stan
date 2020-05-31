@@ -48,7 +48,7 @@ p {
 
 h1 {
     text-transform: uppercase;
-    letter-spacing: .4em;
+    letter-spacing: 1em;
     color: rgb(255, 216, 58);
     font-size: 1em;
     margin-bottom: 10vh;
