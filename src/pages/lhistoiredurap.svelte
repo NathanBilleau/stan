@@ -33,7 +33,9 @@
 
 <style>
 main {
-     background-image: url(/pics/hin-bong-yeung-jF946mh5QrA-unsplash-dark.jpg);
+    background-image: url(/pics/hin-bong-yeung-jF946mh5QrA-unsplash.jpg);
+    background-color: #333;
+    background-blend-mode: multiply;
     background-size: cover;
     height: 100vh;
     width: 100vw;
