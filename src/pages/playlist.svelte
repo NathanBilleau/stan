@@ -10,8 +10,6 @@
     import SideText from '../components/SideText.svelte'
 
     import content from '../content'
-
-    console.log(content);
     
 
     let index = 0
@@ -34,7 +32,7 @@
 
 </script>
 
-<main>
+<main style={`background-image: url(${content[index].picture})`}>
     <div class="buttonsContainer">
         <HomeBtn />
         <FullScreenBtn />
@@ -45,11 +43,11 @@
 
     <div class="covers">
         {#each content as item, i}
-            <img class={index == i ? "selected" : ''} src={item.picture} alt={item.title}>
+            <img class:selected={index == i} src={item.picture} alt={item.title}>
         {/each}
         <div class="controls">
             <button on:click={backward}><i class="fa fa-backward"></i></button>
-            {#if selectedItems.indexOf(index) !== -1}
+            {#if selectedItems.includes(index)}
                     <Selected />
             {:else}
                     <button on:click={add}><i class="fa fa-plus"></i></button>
@@ -122,7 +120,6 @@ p {
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .7));
     display: flex;
     justify-content: center;
-    
 }
 
 .controls button{
