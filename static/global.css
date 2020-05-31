@@ -24,3 +24,32 @@ main {
 * {
 	font-family: 'montserrat';
 }
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 1em;
+    color: rgb(255, 216, 58);
+    font-size: 1em;
+    margin-bottom: 10vh;
+}
+
+p {
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    line-height: 2em;
+}
+
+p span {
+    color: rgb(255, 216, 58);
+    display: block;
+}
+
+.understood {
+    background: none;
+    border:none;
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: 600;
+    cursor: pointer;
+}

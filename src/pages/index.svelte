@@ -45,6 +45,7 @@ h1 {
     margin: 0;
     margin-bottom: 30px;
     color: #fff;
+    letter-spacing: 0;
 }
 
 

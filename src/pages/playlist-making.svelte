@@ -2,6 +2,8 @@
     import { goto } from '@sveltech/routify'
     import mouse from 'mousetrap'
 
+    import { selectedItems } from '../store'
+
     import FullScreenBtn from '../components/FullScreenBtn.svelte'
     import HomeBtn from '../components/HomeBtn.svelte'
     import CloseBtn from '../components/CloseBtn.svelte'
@@ -14,7 +16,7 @@
     
 
     let index = 0
-    let selectedItems = []
+    
 
     function backward() {
         if(index == 0) index = content.length
@@ -22,8 +24,8 @@
     }
 
     function add() {
-        selectedItems.push(index)
-        selectedItems = selectedItems
+        $selectedItems.push(index)
+        $selectedItems = $selectedItems
     }
 
     function forward() {
@@ -38,7 +40,7 @@
 
 </script>
 
-<main style={`background-image: url(${content[index].picture})`}>
+<main style="background-image: url({content[index].picture})">
     <div class="buttonsContainer">
         <HomeBtn />
         <FullScreenBtn />
@@ -54,7 +56,7 @@
         <div class="controls">
             <button on:click={backward}><i class="fa fa-backward"></i></button>
             
-            {#if selectedItems.includes(index)}
+            {#if $selectedItems.includes(index)}
                     <Selected />
             {:else}
                     <button on:click={add}><i class="fa fa-plus"></i></button>
@@ -67,7 +69,7 @@
     <h1>{content[index].title}</h1>
     <p>{content[index].description}</p>
 
-    <StartPlaylist />
+    <StartPlaylist icon="play" link="/playlist-done" text="Lancer ma playlist" />
 </main>
 
 <style>
@@ -90,15 +92,15 @@ main {
     width: 40vh;
     height: 40vh;
     object-fit: cover;
-    filter: saturate(0);
+    filter: saturate(0) brightness(.6);
     position: absolute;
     transition: transform .2s;
-    transform: translate(-70px);
+    transform: translate(-5vw);
 }
 
 /* next */
 .covers .selected ~ img {
-    transform: translate(70px);
+    transform: translate(5vw);
 }
 
 /* selected */
@@ -106,6 +108,7 @@ main {
     transform: scale(1.2);
     z-index: 999;
     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    filter: saturate(0) brightness(1);
 }
 
 h1,

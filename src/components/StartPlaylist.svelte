@@ -1,11 +1,14 @@
 <script>
     import { goto } from '@sveltech/routify'
     export let disabled = false
+    export let link
+    export let text
+    export let icon
 </script>
 
-<button on:click={disabled ? null : $goto('/')}>
-    <i class="fa fa-play"></i>
-    <span>Lancer ma playlist</span>
+<button on:click={disabled ? null : $goto(link)}>
+    <i class="fa fa-{icon}"></i>
+    <span>{text}</span>
 </button>
 
 <style>
@@ -14,7 +17,7 @@ button {
     background: rgb(255, 216, 58);
     color: #000;
     border-radius: 20px;
-    padding: 5px 20px;
+    padding: 10px 20px;
     display: block;
     width: fit-content;
     margin: 10px auto;
@@ -30,5 +33,10 @@ button {
 button .fa {
     font-size: .8em;
     margin-right: 5px;
+}
+
+button span {
+    color: #000;
+    display: inline-block;
 }
 </style>

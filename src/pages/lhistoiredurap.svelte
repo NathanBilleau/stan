@@ -19,13 +19,13 @@
         Sélectionnez celles qui vous intéressent en cliquand sur le + <br>
         Elles seront alors marquées du symbole <Selected /> <br>
         Lorsque votre choix est fait, cliques sur
-        <StartPlaylist disabled={true} />
+        <StartPlaylist disabled={true} text="Lancer ma playlist" link="/playlist-done" icon="play" />
         <br>
         Votre playlist démarrera alors automatiquement
         <span>Bonne écoute !</span>
     </p>
 
-    <button class="understood" on:click={$goto('/playlist')}>
+    <button class="understood" on:click={$goto('/playlist-making')}>
         <i class="fa fa-check"></i>
         Ok, j'ai compris
     </button>
@@ -37,34 +37,5 @@
 main {
     background-color: #333;
     background-blend-mode: multiply;
-}
-
-p {
-    color: #fff;
-    font-weight: 600;
-    text-align: center;
-    line-height: 2em;
-}
-
-h1 {
-    text-transform: uppercase;
-    letter-spacing: 1em;
-    color: rgb(255, 216, 58);
-    font-size: 1em;
-    margin-bottom: 10vh;
-}
-
-span {
-    color: rgb(255, 216, 58);
-    display: block;
-}
-
-.understood {
-    background: none;
-    border:none;
-    color: #fff;
-    font-size: 1.3em;
-    font-weight: 600;
-    cursor: pointer;
 }
 </style>
