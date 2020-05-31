@@ -5,7 +5,9 @@
 </script>
 
 <main>
-    <FullScreenBtn />
+    <div class="buttonsContainer">
+        <FullScreenBtn />
+    </div>
 
     <h1>L'histoire du rap</h1>
     <div class="player">

@@ -15,6 +15,6 @@ h2 {
     position: absolute;
     bottom: 5vh;
     font-weight: 400;
-    font-family: 'montserrat';
+    text-align: center;
 }
 </style>

@@ -1,8 +1,9 @@
 <script>
     import { goto } from '@sveltech/routify'
+    export let disabled = false
 </script>
 
-<button on:click={$goto('/')}>
+<button on:click={disabled ? null : $goto('/')}>
     <i class="fa fa-play"></i>
     <span>Lancer ma playlist</span>
 </button>

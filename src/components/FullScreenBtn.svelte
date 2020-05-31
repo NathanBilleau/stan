@@ -37,11 +37,8 @@
 
 <style>
 button {
-    position: absolute;
     border:none;
     background: none;
-    top: 20px;
-    right: 20px;
 }
 
 i {
