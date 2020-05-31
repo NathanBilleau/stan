@@ -31,20 +31,19 @@
     }
 </script>
 
-<button>
-    <i class="fa fa-compress fullscreenBtn" on:click={toogleFullScreen}></i>
+<button on:click={toogleFullScreen}>
+    <i class="fa fa-compress"></i>
 </button>
 
 <style>
 button {
     border:none;
     background: none;
+    cursor: pointer;
 }
 
 i {
-    
     font-size: 1.6em;
     color: #fff;
-    cursor: pointer;
 }
 </style>

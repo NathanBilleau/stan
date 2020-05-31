@@ -1,16 +1,23 @@
 <script>
     import { goto } from '@sveltech/routify'
 
-    import Advice from '../components/Advice.svelte'
     import FullScreenBtn from '../components/FullScreenBtn.svelte'
+    import HomeBtn from '../components/HomeBtn.svelte'
+    import CloseBtn from '../components/CloseBtn.svelte'
     import Selected from '../components/Selected.svelte'
     import StartPlaylist from '../components/StartPlaylist.svelte'
+
+    import SideText from '../components/SideText.svelte'
 </script>
 
 <main>
     <div class="buttonsContainer">
+        <HomeBtn />
         <FullScreenBtn />
+        <CloseBtn />
     </div>
+
+    <SideText text="l'histoire du rap" />
 
 </main>
 
