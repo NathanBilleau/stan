@@ -10,7 +10,7 @@
     <img src={ytThumb(item.video, 'sd')} alt={item.title} on:click={() => select(i)}>
     <div>
         <h1 on:click={() => select(i)}>
-            {item.title}
+            {item.title.substr(0, 30)}
         </h1>
         <p>
             {#if i === playing}

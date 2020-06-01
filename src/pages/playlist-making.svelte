@@ -29,6 +29,13 @@
         $selectedItems = $selectedItems
     }
 
+    function remove() {
+        $selectedItems.splice(index, 1)
+        $selectedItems = $selectedItems
+        console.log($selectedItems)
+        
+    }
+
     function forward() {
         index++
         if(index == content.length) index = 0
@@ -58,7 +65,7 @@
             <button on:click={backward}><i class="fa fa-backward"></i></button>
             
             {#if $selectedItems.includes(index)}
-                    <Selected />
+                <button on:click={remove}><Selected /></button>   
             {:else}
                     <button on:click={add}><i class="fa fa-plus"></i></button>
             {/if}
@@ -76,7 +83,7 @@
 <style>
 
 main {
-    background-color: #333;
+    background-color: #222;
     background-blend-mode: multiply;
 }
 
