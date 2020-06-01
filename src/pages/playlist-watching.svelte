@@ -12,7 +12,13 @@
     import PlaylistItem from '../components/PlaylistItem.svelte'
 
     let index = 0
+    let myPlaylist = content
 
+    if ($selectedItems.length !== 0) {
+        myPlaylist = myPlaylist.filter((item, i) => {
+            return $selectedItems.includes(i)
+        })
+    }
 
     function select(s) {
         console.log(s);
@@ -31,22 +37,22 @@
     </div>
 
     <div class="playerContainer">
-        <iframe width="560" height="315" src={content[index].video.replace('watch?v=', 'embed/')} title={content[index].title} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src={myPlaylist[index].video.replace('watch?v=', 'embed/')} title={myPlaylist[index].title} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         
         <div class="list">
-        {#each content as item, i}
-            <PlaylistItem {item} {i} {select} />
+        {#each myPlaylist as item, i}
+            <PlaylistItem {item} {i} {select} playing={index} />
         {/each}
         </div>
 
         <div>
-            <h1>{content[index].title}</h1>
-            <p>{content[index].description}</p>
+            <h1>{myPlaylist[index].title}</h1>
+            <p>{myPlaylist[index].description}</p>
         </div>
 
         <div>
             <p>Vous avez regardé toutes les vidéos ?</p>
-            <StartPlaylist text="passer le test" link="/test" />
+            <StartPlaylist text="passer le test" link="/test" icon="forward" />
         </div>
     </div>
 
@@ -63,7 +69,7 @@ main {
 
 .playerContainer {
     display: grid;
-    grid-template-columns: 2fr 1.3fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: 5fr 1fr;
     width: calc(100% - 200px);
     height: calc(100% - 200px);

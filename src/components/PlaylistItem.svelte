@@ -3,6 +3,7 @@
     export let item
     export let i
     export let select
+    export let playing
 </script>
 
 <div class="playlistItemContainer">
@@ -12,7 +13,11 @@
             {item.title}
         </h1>
         <p>
-            {item.description.substr(0, 130)}...
+            {#if i === playing}
+                <span>En cours de lecture</span>
+            {:else}
+                {item.description.substr(0, 130)}...
+            {/if}
         </p>
     </div>
 </div>
@@ -25,13 +30,13 @@
     height: 130px;
     position: relative;
     grid-gap: 20px;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 .playlistItemContainer div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: top;
 }
 
 h1,
@@ -53,11 +58,17 @@ p {
     line-height: 1.1em;
 }
 
+p span {
+    color: #fff;
+    text-transform: uppercase;
+}
+
 img {
     width: 100%;
     height: 100%;
     position: relative;
     object-fit: cover;
+    filter: grayscale(1);
 }
 
 h1,
