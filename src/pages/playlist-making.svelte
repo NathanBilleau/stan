@@ -3,6 +3,7 @@
     import mouse from 'mousetrap'
 
     import { selectedItems } from '../store'
+    import content from '../content'
 
     import FullScreenBtn from '../components/FullScreenBtn.svelte'
     import HomeBtn from '../components/HomeBtn.svelte'
@@ -12,7 +13,6 @@
 
     import SideText from '../components/SideText.svelte'
 
-    import content from '../content'
     
 
     let index = 0

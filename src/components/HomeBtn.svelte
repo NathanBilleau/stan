@@ -14,7 +14,6 @@ button {
 }
 
 i {
-    
     font-size: 1.6em;
     color: #fff;
     cursor: pointer;
