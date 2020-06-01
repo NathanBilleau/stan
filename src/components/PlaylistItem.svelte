@@ -7,7 +7,7 @@
 </script>
 
 <div class="playlistItemContainer">
-    <img src={ytThumb(item.video, 'hq')} alt={item.title} on:click={() => select(i)}>
+    <img src={ytThumb(item.video, 'sd')} alt={item.title} on:click={() => select(i)}>
     <div>
         <h1 on:click={() => select(i)}>
             {item.title}

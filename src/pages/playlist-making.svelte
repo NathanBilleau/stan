@@ -1,6 +1,7 @@
 <script>
     import { goto } from '@sveltech/routify'
     import mouse from 'mousetrap'
+    import ytThumb from 'youtube-img'
 
     import { selectedItems } from '../store'
     import content from '../content'
@@ -40,7 +41,7 @@
 
 </script>
 
-<main style="background-image: url({content[index].picture})">
+<main style="background-image: url({ytThumb(content[index].video, 'maxres')})">
     <div class="buttonsContainer">
         <HomeBtn />
         <FullScreenBtn />
@@ -51,7 +52,7 @@
 
     <div class="covers">
         {#each content as item, i}
-            <img class:selected={index == i} src={item.picture} alt={item.title}>
+            <img class:selected={index == i} src={ytThumb(item.video, 'maxres')} alt={item.title}>
         {/each}
         <div class="controls">
             <button on:click={backward}><i class="fa fa-backward"></i></button>
