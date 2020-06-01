@@ -1,5 +1,6 @@
 <script>
     import { goto } from '@sveltech/routify'
+    import ytThumb from 'youtube-img'
     
     import { selectedItems } from '../store'
     import content from '../content'
@@ -11,6 +12,7 @@
     import SideText from '../components/SideText.svelte'
     import PlaylistItem from '../components/PlaylistItem.svelte'
 
+    let playing = false
     let index = 0
     let myPlaylist = content
 
@@ -21,10 +23,9 @@
     }
 
     function select(s) {
-        console.log(s);
-        
         index = s
         index = index
+        playing = false
     }
 
 </script>
@@ -37,8 +38,16 @@
     </div>
 
     <div class="playerContainer">
-        <iframe width="560" height="315" src={myPlaylist[index].video.replace('watch?v=', 'embed/')} title={myPlaylist[index].title} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        
+
+        {#if playing}
+            <iframe width="560" height="315" src={myPlaylist[index].video.replace('watch?v=', 'embed/')} autoplay title={myPlaylist[index].title} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        {:else}
+            <div class="thumbnail" on:click={() => playing = true}>
+                <img src={ytThumb(myPlaylist[index].video, 'maxres')} alt={myPlaylist[index].title}>
+                <i class="fa fa-play"></i>
+            </div>
+        {/if}
+
         <div class="list">
         {#each myPlaylist as item, i}
             <PlaylistItem {item} {i} {select} playing={index} />
@@ -70,7 +79,7 @@ main {
 .playerContainer {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 5fr 1fr;
+    grid-template-rows: 2fr 1fr;
     width: calc(100% - 200px);
     height: calc(100% - 200px);
     align-items: center;
@@ -102,6 +111,34 @@ p {
     height: 100%;
     overflow-y: auto;
     padding: 0 20px;
+}
+
+.thumbnail {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.thumbnail:hover i {
+    transform: scale(1.2);
+}
+
+.thumbnail img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+}
+
+.thumbnail i {
+    color: #fff;
+    position: absolute;
+    font-size: 4em;
+    text-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    transition: .25s;
 }
 
 </style>

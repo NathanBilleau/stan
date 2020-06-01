@@ -30,7 +30,7 @@
     height: 130px;
     position: relative;
     grid-gap: 20px;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
 .playlistItemContainer div {
