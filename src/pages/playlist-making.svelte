@@ -1,6 +1,7 @@
 <script>
     import { goto } from '@sveltech/routify'
     import mouse from 'mousetrap'
+    import _ from 'lodash'
     import ytThumb from 'youtube-img'
 
     import { selectedItems } from '../store'
@@ -27,13 +28,6 @@
     function add() {
         $selectedItems.push(index)
         $selectedItems = $selectedItems
-    }
-
-    function remove() {
-        $selectedItems.splice(index, 1)
-        $selectedItems = $selectedItems
-        console.log($selectedItems)
-        
     }
 
     function forward() {
@@ -65,9 +59,9 @@
             <button on:click={backward}><i class="fa fa-backward"></i></button>
             
             {#if $selectedItems.includes(index)}
-                <button on:click={remove}><Selected /></button>   
+                <Selected />
             {:else}
-                    <button on:click={add}><i class="fa fa-plus"></i></button>
+                <button on:click={add}><i class="fa fa-plus"></i></button>
             {/if}
             
             <button on:click={forward}><i class="fa fa-forward"></i></button>
@@ -94,6 +88,7 @@ main {
     position: relative;
     height: 48vh;
     width: 48vh;
+    margin-bottom: 20px;
 }
 
 .covers img {
@@ -140,7 +135,7 @@ p {
 .controls {
     position: absolute;
     z-index: 9999;
-    bottom: 0;
+    bottom: -1px;
     width: 100%;
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .7));
     display: flex;
