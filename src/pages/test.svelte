@@ -186,6 +186,7 @@ ul li div {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: .2s;
 }
 
 .selected div {
