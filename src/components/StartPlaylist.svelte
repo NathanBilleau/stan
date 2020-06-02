@@ -7,7 +7,9 @@
 </script>
 
 <button on:click={disabled ? null : $goto(link)}>
-    <i class="fa fa-{icon}"></i>
+    {#if icon}
+        <i class="fa fa-{icon}"></i>
+    {/if}
     <span>{text}</span>
 </button>
 

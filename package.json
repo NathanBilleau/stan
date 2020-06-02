@@ -31,6 +31,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@sveltech/routify": "^1.5.9",
+    "lodash": "^4.17.15",
     "mousetrap": "^1.6.5",
     "svelte": "^3.20.1",
     "youtube-img": "0.0.1"
