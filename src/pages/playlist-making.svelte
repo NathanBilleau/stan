@@ -71,7 +71,7 @@
     <h1>{content[index].title}</h1>
     <p>{content[index].description}</p>
 
-    <StartPlaylist icon="play" link="/playlist-done" text="Lancer ma playlist" />
+    <StartPlaylist icon="play" disabled={$selectedItems.length === 0} link="/playlist-done" text="Lancer ma playlist" />
 </main>
 
 <style>

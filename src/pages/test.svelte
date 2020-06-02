@@ -11,6 +11,11 @@
     import StartPlaylist from '../components/StartPlaylist.svelte'
     import SideText from '../components/SideText.svelte'
 
+
+    if ($selectedItems.length === 0) {
+        $goto('/playlist-making')
+    }
+
     let myPlaylist = content
 
     if ($selectedItems.length !== 0) {

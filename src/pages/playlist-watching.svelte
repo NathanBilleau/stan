@@ -22,6 +22,10 @@
         })
     }
 
+    if ($selectedItems.length === 0) {
+        $goto('/playlist-making')
+    }
+
     function select(s) {
         index = s
         index = index

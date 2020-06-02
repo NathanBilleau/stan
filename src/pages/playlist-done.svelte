@@ -7,6 +7,12 @@
     import StartPlaylist from '../components/StartPlaylist.svelte'
     import Advice from '../components/Advice.svelte'
 
+    import { selectedItems } from '../store'
+
+    if ($selectedItems.length === 0) {
+        $goto('/playlist-making')
+    }
+
 </script>
 
 <main>
